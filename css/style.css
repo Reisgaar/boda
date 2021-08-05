@@ -1,0 +1,542 @@
+body {
+    font-family: Verdana;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-width: 300px;
+    overflow-x: hidden;
+    background-color: #f0f0f0;
+}
+
+.header {
+    background-image: url(/public/images/portada.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    display: flex;
+}
+
+.textoHeader {
+    font-family: 'Fuggles', cursive;
+    text-align: center;
+    margin: 30px 0 25px 6%;
+    position: relative;
+    color: whitesmoke;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+.textoHeader h1 {
+    font-size: 10em;
+    margin: 0;
+}
+
+.textoHeaderY {
+    margin-top: -66px !important;
+}
+
+.textoHeader p {
+    font-size: 6em;
+    line-height: 1px;
+}
+
+.lang {
+    margin: 5px 5px 0 0;
+    position: absolute;
+}
+
+.menu {
+    font-family: 'Niconne', cursive;
+    background-color: #333333;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.cat {
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+    width: max-content;
+    margin: auto;
+}
+
+.itemMenu {
+    float: left;
+    font-size: 2.5em;
+    font-weight: 300;
+    margin: 0 10px;
+}
+
+.itemMenu a {
+    display: block;
+    color: white;
+    padding: 5px 15px;
+    text-decoration: none;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.itemMenu a:hover {
+    text-decoration: underline;
+    color:lightskyblue;
+}
+
+.contenido {
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
+}
+
+.nosotros {
+    display: flex;
+    margin: auto;
+    font-family: 'Fuggles', cursive;
+}
+
+.asierymaria {
+    margin: 10px;
+    padding: 10px;
+}
+
+.asierymaria img{
+    width: 75%;
+    border-style: solid;
+    border-width: 80px 15px 15px;
+    border-color: whitesmoke;
+    position: relative;
+    z-index: -1;
+    margin-top: -46px;
+    -webkit-box-shadow: 10px 10px 15px 5px rgba(0,0,0,0.5); 
+    box-shadow: 10px 10px 15px 5px rgba(0,0,0,0.5);
+}
+
+.asierymaria h2{
+    margin: -10px 0 -40px;
+    font-size: 5em;
+}
+
+.asierymaria p {
+    font-family: 'Niconne', cursive;
+    text-align: justify;
+    width: 80%;
+    font-size: 2em;
+    line-height: 1;
+    margin: 10px auto;
+}
+
+.separador {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 70px 0;
+}
+
+.separador2 {
+    position: relative;
+    width: 73px;
+}
+
+.huellas{
+    position: relative;
+    background-image: url(/public/images/footprint.png);
+    background-size: contain;
+    height: 40px;
+    width: 1600%;
+}
+
+.blancoInicial {
+    position: absolute;
+    z-index: 1;
+    background-color: #f0f0f0;
+    height: 40px;
+    left: 0;
+
+    animation-name: animInicial;
+    animation-duration: 20s;
+    animation-timing-function: step-end;
+}
+
+.blanco {
+    position: absolute;
+    z-index: 1;
+    background-color: #f0f0f0;
+    height: 40px;
+    width: 0%;
+    left: 0;
+}
+
+.animBucle1 {
+    animation-name: bucle1;
+    animation-duration: 20s;
+    animation-timing-function: step-end;
+    animation-iteration-count: infinite;
+}
+
+.animBucle1Fade {
+    background: linear-gradient(to right, #f0f0f0 25%, transparent);
+    animation-name: bucle1Fade;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.animBucle2 {
+    animation-name: bucle2;
+    animation-duration: 20s;
+    animation-timing-function: step-end;
+    animation-iteration-count: infinite;
+}
+
+.animBucle2Fade {
+    background: linear-gradient(to right, #f0f0f0 25%, transparent);
+    animation-name: bucle2Fade;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.animSupport {
+    animation-name: bucleSupport;
+    animation-duration: 20s;
+    animation-timing-function: step-end;
+    animation-iteration-count: infinite;
+}
+
+
+/* TIMELINE */
+.marcoHorarios {
+    overflow: hidden;
+    width: 90%;
+    margin: auto;
+    border-top: 3px solid #4557bb;
+}
+
+.horarios h2 {
+    font-family: 'Niconne', cursive;
+    font-size: 3em;
+    position: relative;
+    margin: auto;
+    background-color: whitesmoke;
+    border: 3px solid #4557bb;
+    width: 300px;
+    padding: 5px 0;
+    top: 35px;
+}
+
+.evento {
+    margin: -3px 0px;
+    border-top: 3px solid transparent;
+}
+
+.horarios h2::before {
+    content: "";
+    background-color: #f0f0f0;
+    width: 200%;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 303px;
+    z-index: -1;
+}
+
+.evento1 {
+    padding: 25px 5px 30px 30px;
+    border-left: 3px solid #4557bb;
+    border-bottom: 3px solid #8245bb;
+}
+
+.evento2 {
+    padding: 25px 30px 30px 5px;
+    border-right: 3px solid #8245bb;
+    border-bottom: 3px solid #bb4598;
+}
+
+.evento3 {
+    padding: 25px 5px 30px 30px;
+    border-left: 3px solid #bb4598;
+    border-bottom: 3px solid #bb454b;
+}
+
+.evento4 {
+    padding: 25px 30px 30px 5px;
+    border-right: 3px solid #bb454b;
+    border-bottom: 3px solid transparent;
+}
+
+.hora {
+    position: absolute;
+    top: -25px;
+    font-family: 'Niconne', cursive;
+    font-size: 2em;
+    color: white;
+    width: 80px;
+    padding: 0px 4px 4px 4px;
+}
+
+.tarjetaCal {
+    position: relative;
+    background-color: white;
+    padding-bottom: 10px;
+    margin: 25px;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
+}
+
+.evento1 .tarjetaCal {border-left: 3px solid #4557bb;}
+.evento2 .tarjetaCal {border-left: 3px solid #8245bb;}
+.evento3 .tarjetaCal {border-left: 3px solid #bb4598;}
+.evento4 .tarjetaCal {border-left: 3px solid #bb454b;}
+
+.tarjetaCal::before {
+    content: "";
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    z-index: -1;
+}
+
+.evento1 .tarjetaCal::before {background-color: #4557bb; left: -50%;}
+.evento2 .tarjetaCal::before {background-color: #8245bb; left: 50%;}
+.evento3 .tarjetaCal::before {background-color: #bb4598; left: -50%;}
+.evento4 .tarjetaCal::before {background-color: #bb454b; left: 50%;}
+
+.nombreEvento {
+    font-family: 'Niconne', cursive;
+    font-size: 2.5em;
+    color: white;
+    padding: 5px 0;
+}
+
+.evento1 .nombreEvento {background-color: #4557bb;}
+.evento2 .nombreEvento {background-color: #8245bb;}
+.evento3 .nombreEvento {background-color: #bb4598;}
+.evento4 .nombreEvento {background-color: #bb454b;}
+
+.descEvento {
+    margin: 30px 0px 30px;
+}
+
+.descEvento p {
+    font-family: 'Niconne', cursive;
+    text-align: left;
+    font-size: 1.5em;
+    margin: 10px 50px 10px;
+    line-height: 30px;
+}
+
+.descEvento p:first-child {
+    font-size: 2em;
+    text-align: center;
+    margin: -5px 50px 35px;
+
+}
+
+.voltear {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    -ms-filter: fliph; /*IE*/
+    filter: fliph; /*IE*/
+}
+
+.footer {
+    background-color: black;
+    margin-top: 80px;
+}
+
+
+@keyframes animInicial {
+    0% { width: 1600%; }
+    3.125% { width: 1550%; left: 50%; }
+    6.250% { width: 1500%; left: 100%; }
+    9.375% { width: 1450%; left: 150%; }
+    12.500% { width: 1400%; left: 200%; }
+    15.625% { width: 1350%; left: 250%; }
+    18.750% { width: 1300%; left: 300%; }
+    21.875% { width: 1250%; left: 350%; }
+    25.000% { width: 1200%; left: 400%; }
+    28.125% { width: 1150%; left: 450%; }
+    31.250% { width: 1100%; left: 500%; }
+    34.375% { width: 1050%; left: 550%; }
+    37.500% { width: 1000%; left: 600%; }
+    40.625% { width: 950%;  left: 650%; }
+    43.750% { width: 900%;  left: 700%; }
+    46.875% { width: 850%;  left: 750%; }
+    50.000% { width: 800%;  left: 800%; }
+    53.125% { width: 750%;  left: 850%; }
+    56.250% { width: 700%;  left: 900%; }
+    59.375% { width: 650%;  left: 950%; }
+    62.500% { width: 600%;  left: 1000%; }
+    65.625% { width: 550%;  left: 1050%; }
+    68.750% { width: 500%;  left: 1100%; }
+    71.875% { width: 450%;  left: 1150%; }
+    75.000% { width: 400%;  left: 1200%; }
+    78.125% { width: 350%;  left: 1250%; }
+    81.250% { width: 300%;  left: 1300%; }
+    84.375% { width: 250%;  left: 1350%; }
+    87.500% { width: 200%;  left: 1400%; }
+    90.625% { width: 150%;  left: 1450%; }
+    93.750% { width: 100%;  left: 1500%; }
+    96.875% { width: 50%;   left: 1550%; }
+    100% { width: 0%; }
+}
+
+@keyframes bucleSupport {
+    0%      { width: 0%; left: 0%; }
+    3.125%  { width: 0%; left: 0%; }
+    6.250%  { width: 0%; left: 0%; }
+    9.375%  { width: 0%; left: 0%; }
+    12.500% { width: 0%; left: 0%; }
+    15.625% { width: 0%; left: 0%; }
+    18.750% { width: 0%; left: 0%; }
+    21.875% { width: 0%; left: 0%; }
+    25.000% { width: 0%; left: 0%; }
+    28.125% { width: 350%; left: 1250%; }
+    31.250% { width: 300%; left: 1300%; }
+    34.375% { width: 250%; left: 1350%; }
+    37.500% { width: 200%; left: 1400%; }
+    40.625% { width: 150%; left: 1450%; }
+    43.750% { width: 100%; left: 1500%; }
+    46.875% { width: 50%; left: 1550%; }
+    50.000% { width: 0%; left: 0%; }
+    53.125% { width: 0%; left: 0%; }
+    56.250% { width: 0%; left: 0%; }
+    59.375% { width: 0%; left: 0%; }
+    62.500% { width: 0%; left: 0%; }
+    65.625% { width: 0%; left: 0%; }
+    68.750% { width: 0%; left: 0%; }
+    71.875% { width: 0%; left: 0%; }
+    75.000% { width: 0%; left: 0%; }
+    78.125% { width: 350%; left: 1250%; }
+    81.250% { width: 300%; left: 1300%; }
+    84.375% { width: 250%; left: 1350%; }
+    87.500% { width: 200%; left: 1400%; }
+    90.625% { width: 150%; left: 1450%; }
+    93.750% { width: 100%; left: 1500%; }
+    96.875% { width: 50%; left: 1550%; }
+    100%    { width: 0%; left: 0%; }
+}
+
+@keyframes bucle1 {
+    0%      { width: 400%; left: 0%; }
+    3.125%  { width: 400%; left: 50%; }
+    6.250%  { width: 400%; left: 100%; }
+    9.375%  { width: 400%; left: 150%; }
+    12.500% { width: 400%; left: 200%; }
+    15.625% { width: 400%; left: 250%; }
+    18.750% { width: 400%; left: 300%; }
+    21.875% { width: 400%; left: 350%; }
+    25.000% { width: 400%; left: 400%; }
+    28.125% { width: 400%; left: 450%; }
+    31.250% { width: 400%; left: 500%; }
+    34.375% { width: 400%; left: 550%; }
+    37.500% { width: 400%; left: 600%; }
+    40.625% { width: 400%; left: 650%; }
+    43.750% { width: 400%; left: 700%; }
+    46.875% { width: 400%; left: 750%; }
+    50.000% { width: 400%; left: 800%; }
+    53.125% { width: 400%; left: 850%; }
+    56.250% { width: 400%; left: 900%; }
+    59.375% { width: 400%; left: 950%; }
+    62.500% { width: 400%; left: 1000%; }
+    65.625% { width: 400%; left: 1050%; }
+    68.750% { width: 400%; left: 1100%; }
+    71.875% { width: 400%; left: 1150%; }
+    75.000% { width: 400%; left: 1200%; }
+    78.125% { width: 50%;  left: 0%; }
+    81.250% { width: 100%; left: 0%; }
+    84.375% { width: 150%; left: 0%; }
+    87.500% { width: 200%; left: 0%; }
+    90.625% { width: 250%; left: 0%; }
+    93.750% { width: 300%; left: 0%; }
+    96.875% { width: 350%; left: 0%; }
+    100%    { width: 400%; left: 0%; }
+}
+
+@keyframes bucle2 {
+    0%      { width: 400%; left: 800%; }
+    3.125%  { width: 400%; left: 850%; }
+    6.250%  { width: 400%; left: 900%; }
+    9.375%  { width: 400%; left: 950%; }
+    12.500% { width: 400%; left: 1000%; }
+    15.625% { width: 400%; left: 1050%; }
+    18.750% { width: 400%; left: 1100%; }
+    21.875% { width: 400%; left: 1150%; }
+    25.000% { width: 400%; left: 1200%; }
+    28.125% { width: 50%;  left: 0%; }
+    31.250% { width: 100%; left: 0%; }
+    34.375% { width: 150%; left: 0%; }
+    37.500% { width: 200%; left: 0%; }
+    40.625% { width: 250%; left: 0%; }
+    43.750% { width: 300%; left: 0%; }
+    46.875% { width: 350%; left: 0%; }
+    50.000% { width: 400%; left: 0%; }
+    53.125% { width: 400%; left: 50%; }
+    56.250% { width: 400%; left: 100%; }
+    59.375% { width: 400%; left: 150%; }
+    62.500% { width: 400%; left: 200%; }
+    65.625% { width: 400%; left: 250%; }
+    68.750% { width: 400%; left: 300%; }
+    71.875% { width: 400%; left: 350%; }
+    75.000% { width: 400%; left: 400%; }
+    78.125% { width: 400%; left: 450%; }
+    81.250% { width: 400%; left: 500%; }
+    84.375% { width: 400%; left: 550%; }
+    87.500% { width: 400%; left: 600%; }
+    90.625% { width: 400%; left: 650%; }
+    93.750% { width: 400%; left: 700%; }
+    96.875% { width: 400%; left: 750%; }
+    100%    { width: 400%; left: 800%; }
+}
+
+@keyframes bucle1Fade {
+    0%      { width: 200%; left: 350%; }
+    75.000% { width: 200%; left: 1550%; }
+    75.001% { width: 200%; left: -150%; }
+    78.125% { width: 200%; left: 0%; }
+    81.250% { width: 200%; left: 50%; }
+    84.375% { width: 200%; left: 100%; }
+    87.500% { width: 200%; left: 150%; }
+    90.625% { width: 200%; left: 200%; }
+    93.750% { width: 200%; left: 250%; }
+    96.875% { width: 200%; left: 300%; }
+    100%    { width: 200%; left: 350%; }
+}
+
+@keyframes bucle2Fade {
+    0%      { width: 200%; left: 1150%; }
+    25.000% { width: 200%; left: 1550%; }
+    25.001% { width: 200%; left: -150%; }
+    28.125% { width: 200%; left: 0%; }
+    31.250% { width: 200%; left: 50%; }
+    34.375% { width: 200%; left: 100%; }
+    37.500% { width: 200%; left: 150%; }
+    40.625% { width: 200%; left: 200%; }
+    43.750% { width: 200%; left: 250%; }
+    46.875% { width: 200%; left: 300%; }
+    50.000% { width: 200%; left: 350%; }
+    100%    { width: 200%; left: 1150%; }
+}
+
+
+
+
+@media (max-width: 1345px) {
+    .textoHeader {
+        margin: 2.25% 0 1.85% 6%;
+    }
+
+    .textoHeader h1{
+        font-size: 11.9vw;
+    }
+
+    .textoHeader p{
+        font-size: 7.15vw;
+    }
+
+    .textoHeaderY {
+        margin-top: -25% !important;
+    }
+}
