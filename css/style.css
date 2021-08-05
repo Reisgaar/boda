@@ -9,7 +9,7 @@ body {
 }
 
 .header {
-    background-image: url(/public/images/portada.jpg);
+    background-image: url(../images/portada.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: right;
@@ -137,7 +137,7 @@ body {
 
 .huellas{
     position: relative;
-    background-image: url(/public/images/footprint.png);
+    background-image: url(../images/footprint.png);
     background-size: contain;
     height: 40px;
     width: 1600%;
