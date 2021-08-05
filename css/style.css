@@ -8,6 +8,8 @@ body {
     background-color: #f0f0f0;
 }
 
+.cerrado {display: none !important;}
+
 .header {
     background-image: url(../images/portada.jpg);
     background-size: cover;
@@ -40,9 +42,14 @@ body {
     line-height: 1px;
 }
 
-.lang {
-    margin: 5px 5px 0 0;
-    position: absolute;
+.lineaSup {
+    background-image: url(../images/lineaSup.png);
+    margin: auto;
+    max-width: 700px;
+    width: 80%;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .menu {
@@ -50,6 +57,13 @@ body {
     background-color: #333333;
     font-weight: bold;
     padding: 10px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
 }
 
 .cat {
@@ -86,6 +100,15 @@ body {
     margin: 50px auto 0 auto;
 }
 
+.intro {
+    font-family: 'Niconne', cursive;
+    text-align: justify;
+    width: 80%;
+    font-size: 2em;
+    line-height: 1;
+    margin: 10px auto 30px;
+}
+
 .nosotros {
     display: flex;
     margin: auto;
@@ -97,7 +120,11 @@ body {
     padding: 10px;
 }
 
-.asierymaria img{
+.foto {
+    margin-top: -40px;
+}
+
+.foto img{
     width: 75%;
     border-style: solid;
     border-width: 80px 15px 15px;
@@ -110,8 +137,22 @@ body {
 }
 
 .asierymaria h2{
-    margin: -10px 0 -40px;
     font-size: 5em;
+    display: inline;
+}
+
+.rrss {
+    display: block;
+}
+
+.iconrss {
+    text-decoration: none;
+    margin: 0px 30px;
+    display: inline;
+}
+
+.iconrss img {
+    width: 30px;
 }
 
 .asierymaria p {
@@ -120,7 +161,7 @@ body {
     width: 80%;
     font-size: 2em;
     line-height: 1;
-    margin: 10px auto;
+    margin: 30px auto 10px;
 }
 
 .separador {
@@ -207,7 +248,12 @@ body {
     overflow: hidden;
     width: 90%;
     margin: auto;
-    border-top: 3px solid #4557bb;
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to right, #4557bb 50%, transparent 51%);
+    border-left: 0px;
+    border-bottom: 0px;
 }
 
 .horarios h2 {
@@ -216,15 +262,20 @@ body {
     position: relative;
     margin: auto;
     background-color: whitesmoke;
-    border: 3px solid #4557bb;
+    border: 5px solid #4557bb;
     width: 300px;
     padding: 5px 0;
     top: 35px;
 }
 
+.horarios h2:last-child {
+    border: 5px solid #bb454b;
+    top: -35px;
+}
+
 .evento {
-    margin: -3px 0px;
-    border-top: 3px solid transparent;
+    margin: -5px 0px;
+    border-top: 5px solid transparent;
 }
 
 .horarios h2::before {
@@ -234,32 +285,50 @@ body {
     height: 10px;
     position: absolute;
     top: 50%;
-    left: 303px;
+    left: 305px;
     z-index: -1;
+}
+
+.horarios h2:last-child::before {
+    top: 40%;
+    left: -605px;
+    z-index: 0;
 }
 
 .evento1 {
     padding: 25px 5px 30px 30px;
-    border-left: 3px solid #4557bb;
-    border-bottom: 3px solid #8245bb;
+
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to right, #4557bb, transparent);
 }
 
 .evento2 {
     padding: 25px 30px 30px 5px;
-    border-right: 3px solid #8245bb;
-    border-bottom: 3px solid #bb4598;
+
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to left, #8245bb, transparent);
 }
 
 .evento3 {
     padding: 25px 5px 30px 30px;
-    border-left: 3px solid #bb4598;
-    border-bottom: 3px solid #bb454b;
+
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to right, #bb4598, transparent);
 }
 
 .evento4 {
-    padding: 25px 30px 30px 5px;
-    border-right: 3px solid #bb454b;
-    border-bottom: 3px solid transparent;
+    padding: 25px 30px 50px 5px;
+
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to left, #bb454b, #bb454b 25%, transparent);
 }
 
 .hora {
@@ -277,19 +346,19 @@ body {
     background-color: white;
     padding-bottom: 10px;
     margin: 25px;
-    border-radius: 3px;
+    border-radius: 5px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
 }
 
-.evento1 .tarjetaCal {border-left: 3px solid #4557bb;}
-.evento2 .tarjetaCal {border-left: 3px solid #8245bb;}
-.evento3 .tarjetaCal {border-left: 3px solid #bb4598;}
-.evento4 .tarjetaCal {border-left: 3px solid #bb454b;}
+.evento1 .tarjetaCal {border-left: 5px solid #4557bb;}
+.evento2 .tarjetaCal {border-left: 5px solid #8245bb;}
+.evento3 .tarjetaCal {border-left: 5px solid #bb4598;}
+.evento4 .tarjetaCal {border-left: 5px solid #bb454b;}
 
 .tarjetaCal::before {
     content: "";
     width: 100%;
-    height: 3px;
+    height: 5px;
     position: absolute;
     top: 50%;
     left: -50%;
@@ -306,6 +375,7 @@ body {
     font-size: 2.5em;
     color: white;
     padding: 5px 0;
+    border-radius: 0px 5px 0px 0px;
 }
 
 .evento1 .nombreEvento {background-color: #4557bb;}
@@ -328,8 +398,40 @@ body {
 .descEvento p:first-child {
     font-size: 2em;
     text-align: center;
-    margin: -5px 50px 35px;
+    margin: -20px 50px 35px;
+}
 
+.descEvento i {
+    font-size: 30px;
+    margin-top: -4px;
+}
+
+.desplegar {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    bottom: 0;
+}
+
+.desplegar:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.ubicacion {
+    font-family: 'Niconne', cursive;
+    position: absolute;
+    bottom: -3%;
+    right: 2%;
+    font-size: 1.5em;
+}
+
+.ubicacion a {
+    text-decoration: none;
+}
+
+.ubicacion i {
+    color: rgb(197, 70, 70);
 }
 
 .voltear {

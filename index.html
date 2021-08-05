@@ -3,12 +3,19 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8;" />
 		<meta name="viewport" content="width=device-width,initial-scale=1">
+
 		<title>Maria y Asier</title>
+
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script type="text/javascript" src="boda.js"></script>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	</head>
 
 	<body>
@@ -21,41 +28,62 @@
 				<p>2022</p>
 			</div>
 		</div>
-		
-		<div class="menu">
+
+		<div id="bienvenidos"></div>
+
+		<div class="menu" id="menu">
 			<ul class="cat">
 				<li class="itemMenu">
-					<a href="#">Bienvenidos</a>
+					<a href="#bienvenidos">Bienvenidos</a>
 				</li>
 				<li class="itemMenu">
-					<a href="#">Dónde y Cuándo</a>
+					<a href="#dyc">Dónde y Cuándo</a>
 				</li>
 				<li class="itemMenu">
-					<a href="#">Confirma tu asistencia</a>
+					<a href="#confirma">Confirma tu asistencia</a>
 				</li>
 			</ul>
 		</div>
+
 		
 		<div class="contenido">
+			<div class="lineaSup"></div>
+			<p class="intro">Como ya sabéis, el 18 de junio del año que viene nos casamos y esperamos que todos vosotros estéis allí. Por eso hemos creado esta web, para informaros de todo e intentar solucionaros cualquier duda que podáis tener.</p>
 			<div class="nosotros">
 				<div class="asierymaria">
+						<a class="iconrss" href="https://www.facebook.com/maria.ruiz.921025" target="_blank">
+							<img src="images/facebook.png" class="logo"/>
+						</a>
 					<h2>María</h2>
+						<a class="iconrss" href="https://www.instagram.com/mariaruizmartiarena/" target="_blank">
+							<img src="images/instagram.png" class="logo"/>
+						</a>
 					<div class="foto">
 						<img src="images/maria.jpg" class="perfil"/>
+					</div>
+					<div class="rrss">
 					</div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 				</div>
 				<div class="asierymaria">
+						<a class="iconrss" href="https://www.facebook.com/a.gartzia/" target="_blank">
+							<img src="images/facebook.png" class="logo"/>
+						</a>
 					<h2>Asier</h2>
+						<a class="iconrss" href="https://www.instagram.com/reisgaar/" target="_blank">
+							<img src="images/instagram.png" class="logo"/>
+						</a>
 					<div class="foto">
 						<img src="images/asier.jpg" class="perfil"/>
+					</div>
+					<div class="rrss">
 					</div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 				</div>
 			</div>
 
 			
-			<div class="separador">
+			<div class="separador" id="dyc">
 				<div class="separador2">
 					<div class="blancoInicial"></div>
 					<div class="blanco animBucle1"></div>
@@ -79,9 +107,15 @@
 							<p class="hora">13:30</p>
 							<p class="nombreEvento">Ceremonia</p>
 							<div class="descEvento">
-								<p>Lugar: sala Lidia Biurrun de la Ciudadela de Pamplona.</p>
-								<p>Durará como mucho 30 minutos y al finalizar, en la misma ciudadela nos haremos las fotos con los invitados.</p>
-								<p>Tras las fotos tendréis un ratico para echar un pote.</p>
+								<p>Ciudadela: Sala Lidia Biurrun</p>
+								<p class="descEvento cerrado" id="ev1">Durará como mucho 30 minutos y al finalizar, en la misma ciudadela nos haremos las fotos con los invitados. Tras las fotos tendréis un ratico para echar un pote.</p>
+								<div class="desplegar" id="desc1">
+									<i class="fa fa-angle-down" aria-hidden="true" id="down1"></i>
+									<i class="fa fa-angle-up cerrado" aria-hidden="true" id="up1"></i>
+								</div>
+							</div>
+							<div class="ubicacion">
+								<a href="https://goo.gl/maps/uWKuqseUtj9C7WfA9" target="blank"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ubicación</a></p>
 							</div>
 						</div>
 					</div>
@@ -90,10 +124,16 @@
 						<div class="tarjetaCal">
 							<p class="hora">15:15</p>
 							<p class="nombreEvento">Cocktail y Banquete</p>
-							<div class="descEvento">
-								<p>Lugar: Hotel 3 Reyes.</p>
-								<p>No lleguéis tarde, que si no más de uno acabará con lo más rico.</p>
-								<p>El banquete será en el salón Navarra del propio hotel, así que no os paséis mucho con el cocktail que nos conocemos.</p>
+							<div class="descEvento" id="desc2">
+								<p>Hotel 3 Reyes</p>
+								<p class="descEvento cerrado" id="ev2">No os paséis mucho con el aperitivo que hay que guardar sitio para el banquete, que será en el salón Navarra del propio hotel.</p>
+								<div class="desplegar" id="desc2">
+									<i class="fa fa-angle-down" aria-hidden="true" id="down2"></i>
+									<i class="fa fa-angle-up cerrado" aria-hidden="true" id="up2"></i>
+								</div>
+							</div>
+							<div class="ubicacion">
+								<a href="https://g.page/HotelTresReyes?share" target="blank"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ubicación</a></p>
 							</div>
 						</div>
 					</div>
@@ -102,10 +142,16 @@
 						<div class="tarjetaCal">
 							<p class="hora">19:00</p>
 							<p class="nombreEvento">Baile y barra libre</p>
-							<div class="descEvento">
-								<p>Lugar: Salón Navarra del Hotel 3 Reyes.</p>
-								<p>Para bajar el empacho podréis disfrutar de un combinado para facilitar la digestión y también habrá baile donde quemar todo lo que comáis.</p>
-								<p>Si alguno todavía tiene algo de hambre, habrá una pequeña recena.</p>
+							<div class="descEvento" id="desc3">
+								<p>Salón Navarra del Hotel 3 Reyes.</p>
+								<p class="descEvento cerrado" id="ev3">Para bajar el empacho podréis disfrutar de un combinado para facilitar la digestión y también habrá baile donde quemar todo lo que comáis. Si alguno todavía tiene algo de hambre, habrá una pequeña recena.</p>
+								<div class="desplegar" id="desc3">
+									<i class="fa fa-angle-down" aria-hidden="true" id="down3"></i>
+									<i class="fa fa-angle-up cerrado" aria-hidden="true" id="up3"></i>
+								</div>
+							</div>
+							<div class="ubicacion">
+								<a href="https://g.page/HotelTresReyes?share" target="blank"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ubicación</a></p>
 							</div>
 						</div>
 					</div>
@@ -114,14 +160,21 @@
 						<div class="tarjetaCal">
 							<p class="hora">22:00</p>
 							<p class="nombreEvento">Fiesta post-boda</p>
-							<div class="descEvento">
-								<p>Lugar: Casco Viejo.</p>
-								<p>Como nos conocemos bastante bien y seréis más de uno los que no querréis iros a casa, seguiremos la fiesta por lo viejo.</p>
-								<p>Nuestra primera propuesta será ir al infernu, y de ahí ya a verlas venir.</p>
+							<div class="descEvento" id="desc4">
+								<p>Casco Viejo.</p>
+								<p class="descEvento cerrado" id="ev4">Como nos conocemos bastante bien y seréis más de uno los que no querréis iros a casa, seguiremos la fiesta por lo viejo. Nuestra primera propuesta será ir al infernu, y de ahí ya a verlas venir.</p>
+								<div class="desplegar" id="desc4">
+									<i class="fa fa-angle-down" aria-hidden="true" id="down4"></i>
+									<i class="fa fa-angle-up cerrado" aria-hidden="true" id="up4"></i>
+								</div>
+							</div>
+							<div class="ubicacion">
+								<a href="https://goo.gl/maps/uDisyqn8bJ9pw8GEA" target="blank"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ubicación</a></p>
 							</div>
 						</div>
 					</div>
 
+				<h2>A dormir</h2>
 				</div>
 			</div>
 
