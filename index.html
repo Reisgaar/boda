@@ -193,6 +193,119 @@
 			</div>
 
 
+			<div class="confirmacion">
+				<h2>Confirma tu asistencia</h2>
+
+				<p>Vamos a ayudarte a preparar el mensaje para confirmar tu asistencia.</p>
+
+				<div class="pasos" id="paso1">
+					<p>Primero necesitamos saber quién eres y cuántos vendréis en total.</p>
+
+					<label for="nombre">Nombre y apellido:</label>
+					<input type="text" name="nombre" id="nombre0" placeholder="Iñigo Montoya"/>
+
+					<label for="cuantos">Nº de asistentes:</label>
+					<input type="number" name="cuantos" id="cuantos" min="1" max="10"/>
+					
+					<p>PD: cuéntate a ti mismo, no me seas melón.</p>
+
+					<div class="error" id="error1"></div>
+
+					<div class="flechas">
+						<div class="flecha prev"></div>
+						<div class="flecha next">
+							<i class="fa fa-arrow-right" aria-hidden="true" id="pasar1"></i>
+						</div>
+					</div>
+
+				</div>
+
+
+				<div class="pasos cerrado" id="paso2">
+					<p>Ahora necesitamos saber los nombres y el tipo de menú (adulto o infantil):</p>
+					
+					<div id="invitados">
+						<div class="invitado">
+							<label for="nombre">Nombre y apellido:</label>
+							<input type="text" name="nombre" id="nombre1" disabled/>
+							<label for="menu">Menú:</label>
+							<select id="menu" name="menu" class="menuSeleccionado">
+								<option value="de adultos">Adultos</option>
+								<option value="infantil">Infantil</option>
+							</select>
+						</div>
+
+						<div id="añadirInvitados"></div>
+
+					</div>
+
+					<div class="error" id="error2"></div>
+
+					<div class="flechas">
+						<div class="flecha prev">
+							<i class="fa fa-arrow-left" aria-hidden="true" id="pre2"></i>
+						</div>
+						<div class="flecha next">
+							<i class="fa fa-arrow-right" aria-hidden="true" id="pasar2"></i>
+						</div>
+					</div>
+
+				</div>
+
+
+				<div class="pasos cerrado" id="paso3">
+					<p>Por último dinos si tienes alguna intolerancia alimenticia o alergia:</p>
+					<div id="invIntol"></div>
+
+					<div class="error" id="error3"></div>
+
+
+					<div class="flechas">
+						<div class="flecha prev">
+							<i class="fa fa-arrow-left" aria-hidden="true" id="pre3"></i>
+						</div>
+						<div class="flecha next">
+							<i class="fa fa-arrow-right" aria-hidden="true" id="pasar3"></i>
+						</div>
+					</div>
+
+				</div>
+
+
+				<div class="pasos cerrado" id="paso4">
+					<p id="saludo">Hola, os escribo para confirmaros </p>
+					<p id="menus"></p>
+					<div id="ints"></div>
+					<p id="adios">¡Nos vemos, un saludo!</p>
+
+					<div class="flechas">
+						<div class="flecha prev">
+							<i class="fa fa-arrow-left" aria-hidden="true" id="pre4"></i>
+						</div>
+						<div class="flecha next"></div>
+					</div>
+				</div>
+
+				
+				<p></p>
+
+			</div>
+
+			
+			<div class="separador">
+				<div class="separador2">
+					<div class="blancoInicial"></div>
+					<div class="blanco animBucle1"></div>
+					<div class="blanco animBucle2"></div>
+					<div class="blanco animSupport"></div>
+					<div class="blanco animBucle1Fade"></div>
+					<div class="blanco animBucle2Fade"></div>
+					<div class="blanco animSupportFade"></div>
+					<div class="huellas"></div>
+				</div>
+			</div>
+
+
 
 
 		</div>
