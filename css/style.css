@@ -589,9 +589,114 @@ body {
     text-align: center;
 }
 
+.faq {
+    width: 80%;
+    margin: auto;
+}
+
+.listapreguntas {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.pregunta {
+    margin: 20px 0px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px 2px darkgrey;
+}
+
+.enunciado {
+    position: relative;
+    font-family: 'Niconne', cursive;
+    font-size: 2em;
+    margin-bottom: 5px;
+    padding-right: 35px;
+    padding-left: 10px;
+}
+
+.respuesta {
+    font-family: 'Niconne', cursive;
+    font-size: 1.6em;
+    padding-left: 50px;
+}
+
+.maspregunta, .menospregunta {
+    cursor: pointer;
+    margin: 0px 3px;
+    font-size: 0.7em;
+    position: absolute;
+    top: 30%;
+    right: 0;
+}
+
+.menospregunta {
+    top: unset;
+}
+
+.maspregunta:hover, .menospregunta:hover {
+    font-size: 0.8em;
+    transform: translate(1px, -1px);
+}
+
+.maspregunta:hover {
+    color: green;
+}
+
+.menospregunta:hover {
+    color: crimson;
+}
+
+.separador.ultimosep {
+    margin: 70px 0px 0px;
+}
+
 .footer {
     background-color: black;
     margin-top: 80px;
+}
+
+.footer h2{
+    font-family: 'Niconne', cursive;
+    font-size: 4em;
+    font-weight: normal;
+    color: white;
+    padding: 20px 0px 0px;
+}
+
+#cuentaatras {
+    color:white;
+    padding: 0px 10px 50px;
+    margin: 0;
+    font-size: 3em;
+}
+
+#cuentaatras p {
+    font-family: 'Merienda', cursive;
+    transform: translateY(-23px);
+}
+
+#gracias {
+    color:white;
+    padding: 50px 10px;
+    margin: 0;
+    font-size: 3em;
+}
+
+.circulo {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    border-radius: 300px;
+    background: radial-gradient(darkorchid, black 300%);
+    border: 2px solid #c47ee6;
+}
+
+.time {
+    transform: unset;
+    text-transform: uppercase;
+    font-size: 0.4em;
 }
 
 
@@ -848,6 +953,25 @@ body {
 
     #ev1, #ev2, #ev3, #ev4 {
         line-height: 23px;
+    }
+
+    #cuentaatras {
+        padding: 0 1.6666vw 8.3333vw;
+        font-size: 8vw;
+    }
+
+    #cuentaatras p {
+        transform: translateY(-3.8vw);
+    }
+
+    .circulo {
+        border: 1vw solid #c47ee6;
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .time {
+        font-size: 3.2vw;
     }
 }
 

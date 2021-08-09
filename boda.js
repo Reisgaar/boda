@@ -38,6 +38,18 @@ function iniciar(){
 
     crearEvento(document.getElementById("copytxt"),"click",copyTxt);
 
+    var listafaq = document.getElementsByClassName("maspregunta");
+    for (let i = 0; i < listafaq.length; i++) {
+        crearEvento(listafaq[i],"click",mostrarpregunta);
+    }
+
+    var listafaq2 = document.getElementsByClassName("menospregunta");
+    for (let i = 0; i < listafaq2.length; i++) {
+        crearEvento(listafaq2[i],"click",ocultarpregunta);
+    }
+
+    crearCuentaAtras();
+
 }
 
 
@@ -155,8 +167,6 @@ function pasar(num, next){
 
 function crearPaso2(){
     document.getElementById('nombre1').value = lista[0];
-
-    console.log(lista);
     
     for (let i = 1; i < total; i++) {
         var j = i + 1;
@@ -216,7 +226,6 @@ function crearPaso3(){
 }
 
 function box(){
-    console.log(this.checked);
     var quien = this.value;
     var seleccion = this.checked;
 
@@ -358,3 +367,57 @@ const copyTxt = mensaje => {
     document.execCommand('copy');
     document.body.removeChild(el);
 };
+
+
+function mostrarpregunta() {
+    console.log(this.parentElement.parentElement.getElementsByClassName("respuesta")[0]);
+    this.classList.add("cerrado");
+    this.parentElement.getElementsByClassName("menospregunta")[0].classList.remove("cerrado");
+    this.parentElement.parentElement.getElementsByClassName("respuesta")[0].classList.remove("cerrado");
+
+}
+
+
+function ocultarpregunta() {
+    console.log(this.parentElement.parentElement.getElementsByClassName("respuesta")[0]);
+    this.classList.add("cerrado");
+    this.parentElement.getElementsByClassName("maspregunta")[0].classList.remove("cerrado");
+    this.parentElement.parentElement.getElementsByClassName("respuesta")[0].classList.add("cerrado");
+
+}
+
+
+function crearCuentaAtras() {
+    // Set the date we're counting down to
+    var countDownDate = new Date("Jun 18, 2022 13:30:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+            
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+            
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+        // Output the result in an element with id="demo"
+        document.getElementById("dias").innerHTML = days;
+        document.getElementById("horas").innerHTML = hours;
+        document.getElementById("minutos").innerHTML = minutes;
+        document.getElementById("segundos").innerHTML = seconds;
+            
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("cuentaatras").classList.add("cerrado");
+            document.getElementById("gracias").classList.remove("cerrado");
+            document.getElementById("gracias").innerHTML = "¡Gracias por haber estado con nosotros!";
+        }
+    }, 1000);
+}
