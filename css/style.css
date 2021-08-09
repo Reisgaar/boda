@@ -94,6 +94,7 @@ body {
 }
 
 .contenido {
+    overflow-x: hidden;
     max-width: 1200px;
     margin: 50px auto 0 auto;
 }
@@ -867,6 +868,11 @@ body {
 }
 
 @media (max-width: 450px) {
+    #menu {
+        position: relative;
+        top: unset;
+    }
+
     .itemMenu {
         display: block;
     }
