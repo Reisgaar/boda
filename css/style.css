@@ -871,6 +871,8 @@ body {
     #menu {
         position: relative;
         top: unset;
+        width: unset;
+        z-index: unset;
     }
 
     .itemMenu {
