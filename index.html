@@ -13,6 +13,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Fuggles&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -42,13 +43,19 @@
 				<li class="itemMenu">
 					<a href="#confirma">Confirma tu asistencia</a>
 				</li>
+				<li class="itemMenu">
+					<a href="#faq">FAQ</a>
+				</li>
 			</ul>
 		</div>
 
 		
 		<div class="contenido">
+
 			<div class="lineaSup"></div>
+
 			<p class="intro">Como ya sabéis, el 18 de junio del año que viene nos casamos y esperamos que todos vosotros estéis allí. Por eso hemos creado esta web, para informaros de todo e intentar solucionaros cualquier duda que podáis tener.</p>
+			
 			<div class="nosotros">
 				<div class="asierymaria">
 						<a class="iconrss" href="https://www.facebook.com/maria.ruiz.921025" target="_blank">
@@ -60,8 +67,6 @@
 						</a>
 					<div class="foto">
 						<img src="images/maria.jpg" class="perfil"/>
-					</div>
-					<div class="rrss">
 					</div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 				</div>
@@ -75,8 +80,6 @@
 						</a>
 					<div class="foto">
 						<img src="images/asier.jpg" class="perfil"/>
-					</div>
-					<div class="rrss">
 					</div>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 				</div>
@@ -104,8 +107,10 @@
 
 					<div class="evento evento1">
 						<div class="tarjetaCal">
-							<p class="hora">13:30</p>
-							<p class="nombreEvento">Ceremonia</p>
+							<div class="evtit">
+								<p class="nombreEvento">Ceremonia</p>
+								<p class="hora">13:30</p>
+							</div>
 							<div class="descEvento">
 								<p>Ciudadela: Sala Lidia Biurrun</p>
 								<p class="descEvento cerrado" id="ev1">Durará como mucho 30 minutos y al finalizar, en la misma ciudadela nos haremos las fotos con los invitados. Tras las fotos tendréis un ratico para echar un pote.</p>
@@ -122,8 +127,8 @@
 
 					<div class="evento evento2">
 						<div class="tarjetaCal">
-							<p class="hora">15:15</p>
 							<p class="nombreEvento">Cocktail y Banquete</p>
+							<p class="hora">15:15</p>
 							<div class="descEvento" id="desc2">
 								<p>Hotel 3 Reyes</p>
 								<p class="descEvento cerrado" id="ev2">No os paséis mucho con el aperitivo que hay que guardar sitio para el banquete, que será en el salón Navarra del propio hotel.</p>
@@ -140,8 +145,8 @@
 
 					<div class="evento evento3">
 						<div class="tarjetaCal">
-							<p class="hora">19:00</p>
 							<p class="nombreEvento">Baile y barra libre</p>
+							<p class="hora">19:00</p>
 							<div class="descEvento" id="desc3">
 								<p>Salón Navarra del Hotel 3 Reyes.</p>
 								<p class="descEvento cerrado" id="ev3">Para bajar el empacho podréis disfrutar de un combinado para facilitar la digestión y también habrá baile donde quemar todo lo que comáis. Si alguno todavía tiene algo de hambre, habrá una pequeña recena.</p>
@@ -158,8 +163,8 @@
 
 					<div class="evento evento4">
 						<div class="tarjetaCal">
-							<p class="hora">22:00</p>
 							<p class="nombreEvento">Fiesta post-boda</p>
+							<p class="hora">22:00</p>
 							<div class="descEvento" id="desc4">
 								<p>Casco Viejo.</p>
 								<p class="descEvento cerrado" id="ev4">Como nos conocemos bastante bien y seréis más de uno los que no querréis iros a casa, seguiremos la fiesta por lo viejo. Nuestra primera propuesta será ir al infernu, y de ahí ya a verlas venir.</p>
@@ -179,7 +184,7 @@
 			</div>
 
 			
-			<div class="separador voltear">
+			<div class="separador voltear" id="confirma">
 				<div class="separador2">
 					<div class="blancoInicial"></div>
 					<div class="blanco animBucle1"></div>
@@ -194,20 +199,23 @@
 
 
 			<div class="confirmacion">
-				<h2>Confirma tu asistencia</h2>
 
-				<p>Vamos a ayudarte a preparar el mensaje para confirmar tu asistencia.</p>
+				<div class="confpre">
+					<h2>Confirma tu asistencia</h2>
+					<p>Vamos a ayudarte a preparar el mensaje para confirmar tu asistencia.</p>
+				</div>
 
 				<div class="pasos" id="paso1">
 					<p>Primero necesitamos saber quién eres y cuántos vendréis en total.</p>
 
-					<label for="nombre">Nombre y apellido:</label>
-					<input type="text" name="nombre" id="nombre0" placeholder="Iñigo Montoya"/>
-
-					<label for="cuantos">Nº de asistentes:</label>
-					<input type="number" name="cuantos" id="cuantos" min="1" max="10"/>
-					
-					<p>PD: cuéntate a ti mismo, no me seas melón.</p>
+					<div>
+						<label for="nombre">Nombre y apellido:</label>
+						<input type="text" name="nombre" id="nombre0" placeholder="Iñigo Montoya"/>
+					</div>
+					<div>
+						<label for="cuantos">Nº de asistentes:</label>
+						<input type="number" name="cuantos" id="cuantos" min="1" max="10"/>
+					</div>
 
 					<div class="error" id="error1"></div>
 
@@ -222,13 +230,11 @@
 
 
 				<div class="pasos cerrado" id="paso2">
-					<p>Ahora necesitamos saber los nombres y el tipo de menú (adulto o infantil):</p>
+					<p>Ahora necesitamos saber los nombres y el tipo de menú (adulto o infantil) de cada uno:</p>
 					
 					<div id="invitados">
 						<div class="invitado">
-							<label for="nombre">Nombre y apellido:</label>
 							<input type="text" name="nombre" id="nombre1" disabled/>
-							<label for="menu">Menú:</label>
 							<select id="menu" name="menu" class="menuSeleccionado">
 								<option value="de adultos">Adultos</option>
 								<option value="infantil">Infantil</option>
@@ -273,7 +279,9 @@
 
 
 				<div class="pasos cerrado" id="paso4">
-					<p id="saludo">Hola, os escribo para confirmaros </p>
+					<p class="info">Copia el texto y mándanoslo por WhatsApp.</p>
+
+					<p id="saludo">¡Buenas! Os escribo para confirmaros </p>
 					<p id="menus"></p>
 					<div id="ints"></div>
 					<p id="adios">¡Nos vemos, un saludo!</p>
@@ -282,7 +290,9 @@
 						<div class="flecha prev">
 							<i class="fa fa-arrow-left" aria-hidden="true" id="pre4"></i>
 						</div>
-						<div class="flecha next"></div>
+						<div class="flecha next">
+							<i class="far fa-copy" aria-hidden="true" id="copytxt"></i>
+						</div>
 					</div>
 				</div>
 
@@ -292,7 +302,7 @@
 			</div>
 
 			
-			<div class="separador">
+			<div class="separador" id="faq">
 				<div class="separador2">
 					<div class="blancoInicial"></div>
 					<div class="blanco animBucle1"></div>

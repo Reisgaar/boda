@@ -36,6 +36,8 @@ function iniciar(){
     crearEvento(document.getElementById("pre3"),"click",pretarjeta);
     crearEvento(document.getElementById("pre4"),"click",pretarjeta);
 
+    crearEvento(document.getElementById("copytxt"),"click",copyTxt);
+
 }
 
 
@@ -89,7 +91,6 @@ function cerrar(num) {
 }
 
 function cambiotarjeta() {
-    console.log(this.id.slice(-1));
 
     var num =  parseInt(this.id.slice(-1));
     var next = num + 1;
@@ -166,17 +167,11 @@ function crearPaso2(){
 
         var invitado = document.createElement("div");
         invitado.classList.add('invitado');
-        var label1 = document.createElement("label");
-        label1.setAttribute("for", "nombre" + j);
-        label1.innerHTML = 'Nombre y apellido: ';
         var input = document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("name", "nombre" + j);
         input.setAttribute("id", "nombre" + j);
         input.value = nombreLista;
-        var label2 = document.createElement("label");
-        label2.setAttribute("for", "menu" + j);
-        label2.innerHTML =' Menú: ';
         var select = document.createElement("select");
         select.setAttribute("name", "menu" + j);
         select.setAttribute("id", "menu" + j);
@@ -190,9 +185,7 @@ function crearPaso2(){
 
         select.appendChild(option1);
         select.appendChild(option2);
-        invitado.appendChild(label1);
         invitado.appendChild(input);
-        invitado.appendChild(label2);
         invitado.appendChild(select);
         
         document.getElementById('añadirInvitados').appendChild(invitado);
@@ -234,6 +227,7 @@ function box(){
         textarea.setAttribute("class", "intoal");
         textarea.setAttribute("cols", 50);
         textarea.setAttribute("rows", 3);
+        textarea.setAttribute("placeholder", "Ej: Alergia a las gambas, celiaquía e intolerancia a la lactosa.");
 
         document.getElementById('inv'+quien).parentElement.appendChild(textarea);
     }
@@ -300,7 +294,7 @@ function crearMensaje() {
     }
     else if (cuantos > 1){
         infantiles = infantiles.substring(0, infantiles.length - 2)
-        lastComma = infantiles.lastIndexOf(',');
+        var lastComma = infantiles.lastIndexOf(',');
         infantiles = infantiles.substring(0, lastComma) + ' y' + infantiles.substring(lastComma + 1);
 
     }
@@ -312,19 +306,55 @@ function crearMensaje() {
         
     }
     else {
-        saludo.innerHTML += "nuestra asistencia a la boda, en total seremos " + total + " (" + lista.toString().replaceAll(",", ", ") + ").";
+        var todos = lista.toString().replaceAll(",", ", ");
+        var lastComma = todos.lastIndexOf(',');
+        todos = todos.substring(0, lastComma) + ' y' + todos.substring(lastComma + 1);
+        
+        saludo.innerHTML += "nuestra asistencia a la boda, en total seremos " + total + " (" + todos + ").";
 
-        if (cuantos == 1) { menus.innerHTML += infantiles + ' tendrá menú infantil'; }
-        else { menus.innerHTML += infantiles + ' tendrán menú infantil'; }
-        menus.innerHTML += ', el resto menú de adultos.'
+        if (infantiles != '') {
+            if (cuantos == 1) { menus.innerHTML += infantiles + ' tendrá menú infantil'; }
+            else { menus.innerHTML += infantiles + ' tendrán menú infantil'; }
+            menus.innerHTML += ', el resto menú de adultos.'
+        }
     }
 
     var intos = document.getElementsByClassName('intoal');
     
     for (let i = 0; i < intos.length; i++) {
-        var texto = document.createElement("p");
-        texto.innerHTML = "Intolerancias o alergias de " + intos[i].id.slice(3) + ": " + intos[i].value;
-        ints.appendChild(texto);
+        if (intos[i].value.trim().length > 0) {
+            var texto = document.createElement("p");
+            if (total == 1) {
+                texto.innerHTML = "Mis intolerancias o alergias: " + intos[i].value;
+            }
+            else {
+                texto.innerHTML = "Intolerancias o alergias de " + intos[i].id.slice(3) + ": " + intos[i].value;
+            }
+            ints.appendChild(texto);
+        }
     }
 
 }
+
+
+const copyTxt = mensaje => {
+    var mensaje = '';
+
+    mensaje += document.getElementById("saludo").innerHTML;
+    mensaje += "\n\n" + document.getElementById("menus").innerHTML;
+
+    var intsL = document.getElementById("ints").getElementsByTagName('p');
+    for (let i = 0; i < intsL.length; i++) {
+        mensaje += "\n\n" + intsL[i].innerHTML;
+    }
+
+    mensaje += "\n\n" + document.getElementById("adios").innerHTML;
+
+
+    const el = document.createElement('textarea');
+    el.value = mensaje;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
