@@ -9,6 +9,9 @@ var lista = ['principal'];
 var listaMenus = [];
 var total = 1;
 
+var cast = true;
+var eusk = false;
+
 function iniciar(){
     window.onscroll = function() {myFunction()};
 
@@ -22,6 +25,9 @@ function iniciar(){
             menu.classList.remove("sticky");
         }
     }
+
+    crearEvento(document.getElementById("langcast"),"click",cambioacast);
+    crearEvento(document.getElementById("langeusk"),"click",cambioaeusk);
 
     crearEvento(document.getElementById("desc1"),"click",desplegar);
     crearEvento(document.getElementById("desc2"),"click",desplegar);
@@ -131,11 +137,21 @@ function cambiotarjeta() {
         }
         if (fallo) {
             lista.splice(1);
-            error(num, '');
+            error(num, 'nombre');
         }
         else {
-            pasar(num, next);
-            crearPaso3();
+            var menuse = document.getElementsByClassName("menuSeleccionado");
+            for (let i = 0; i < menuse.length; i++){
+                if (menuse[i].value == 0){fallo = true;}
+                console.log(fallo);
+            }
+            if (fallo == true) {
+                error(num, 'menu');
+            }
+            else {
+                pasar(num, next);
+                crearPaso3();
+            }
         }
     }
     else if (num == 3){
@@ -149,14 +165,23 @@ function error(num, error){
 
     if (num == 1) {
         if (error == 'nombre') {
-            document.getElementById("error"+num).innerHTML = 'Se te ha olvidado añadir tu nombre.';
+            document.getElementById("error"+num).getElementsByClassName("cast")[0].innerHTML = 'Se te ha olvidado añadir tu nombre.';
+            document.getElementById("error"+num).getElementsByClassName("eusk")[0].innerHTML = 'Izena sartzea ahaztu duzu.';
         }
         else if (error == 'cuantos') {
-            document.getElementById("error"+num).innerHTML = 'El Nº de asistentes tiene que ser mínimo 1 y máximo 10.';
+            document.getElementById("error"+num).getElementsByClassName("cast")[0].innerHTML = 'El Nº de asistentes tiene que ser mínimo 1 y máximo 10.';
+            document.getElementById("error"+num).getElementsByClassName("eusk")[0].innerHTML = 'Pertsona koputua 1 eta 10 bitartean egon behar da.';
         }
     }
     else if (num = 2) {
-        document.getElementById("error"+num).innerHTML = 'Se te ha olvidado añadir algún nombre.';
+        if (error == 'nombre') {
+            document.getElementById("error"+num).getElementsByClassName("cast")[0].innerHTML = 'Se te ha olvidado añadir algún nombre.';
+            document.getElementById("error"+num).getElementsByClassName("eusk")[0].innerHTML = 'Izenen bat sartzea ahaztu duzu.';
+        }
+        else if (error == 'menu') {
+            document.getElementById("error"+num).getElementsByClassName("cast")[0].innerHTML = 'Se te ha olvidado elegir algún menú.';
+            document.getElementById("error"+num).getElementsByClassName("eusk")[0].innerHTML = 'Menuren bat aukeratzea ahaztu duzu.';
+        }
     }
 }
 
@@ -186,15 +211,31 @@ function crearPaso2(){
         select.setAttribute("name", "menu" + j);
         select.setAttribute("id", "menu" + j);
         select.setAttribute("class", "menuSeleccionado");
+        var option0 = document.createElement("option");
+        option0.setAttribute("value", "0");
+        option0.setAttribute("class", "cerrado");
         var option1 = document.createElement("option");
         option1.setAttribute("value", "de adultos");
         option1.innerHTML ='Adultos';
+        option1.setAttribute("class", "cast");
         var option2 = document.createElement("option");
         option2.setAttribute("value", "infantil");
         option2.innerHTML = 'Infantil';
+        option2.setAttribute("class", "cast");
+        var option1eu = document.createElement("option");
+        option1eu.setAttribute("value", "de adultos");
+        option1eu.innerHTML ='Heldu';
+        option1eu.setAttribute("class", "eusk cerrado");
+        var option2eu = document.createElement("option");
+        option2eu.setAttribute("value", "infantil");
+        option2eu.innerHTML = 'Haur';
+        option2eu.setAttribute("class", "eusk cerrado");
 
+        select.appendChild(option0);
         select.appendChild(option1);
         select.appendChild(option2);
+        select.appendChild(option1eu);
+        select.appendChild(option2eu);
         invitado.appendChild(input);
         invitado.appendChild(select);
         
@@ -233,12 +274,21 @@ function box(){
         var textarea = document.createElement("textarea");
         textarea.setAttribute("id", 'txt' + quien);
         textarea.setAttribute("name", 'int' + quien);
-        textarea.setAttribute("class", "intoal");
+        textarea.setAttribute("class", "intoal cast");
         textarea.setAttribute("cols", 50);
         textarea.setAttribute("rows", 3);
         textarea.setAttribute("placeholder", "Ej: Alergia a las gambas, celiaquía e intolerancia a la lactosa.");
+       
+        var textarea2 = document.createElement("textarea");
+        textarea2.setAttribute("id", 'txt' + quien);
+        textarea2.setAttribute("name", 'int' + quien);
+        textarea2.setAttribute("class", "intoal eusk cerrado");
+        textarea2.setAttribute("cols", 50);
+        textarea2.setAttribute("rows", 3);
+        textarea2.setAttribute("placeholder", "Adib: Gambei alergia, zeliakia eta laktosari intolerantzia.");
 
         document.getElementById('inv'+quien).parentElement.appendChild(textarea);
+        document.getElementById('inv'+quien).parentElement.appendChild(textarea2);
     }
     else {
         var myobj = document.getElementById('txt'+quien);
@@ -309,22 +359,38 @@ function crearMensaje() {
     }
 
     if (total == 1) {
-        saludo.innerHTML += "mi asistencia a la boda.";
-        if (infantiles == ''){menus.innerHTML += "Mi menú será de adultos.";}
-        else {menus.innerHTML += "Mi menú será infantil.";}
+        saludo.getElementsByClassName("cast")[0].innerHTML += "mi asistencia a la boda.";
+        saludo.getElementsByClassName("eusk")[0].innerHTML += "ezkontzara joango naizela baieztatzeko.";
+        if (infantiles == ''){
+            menus.getElementsByClassName("cast").innerHTML += "Mi menú será de adultos.";
+            menus.getElementsByClassName("eusk").innerHTML += "Helduentzako menua hartuko dut.";
+        }
+        else {
+            menus.getElementsByClassName("cast").innerHTML += "Mi menú será infantil.";
+            menus.getElementsByClassName("eusk").innerHTML += "Haurrentzako menua hartuko dut.";
+        }
         
     }
     else {
         var todos = lista.toString().replaceAll(",", ", ");
         var lastComma = todos.lastIndexOf(',');
-        todos = todos.substring(0, lastComma) + ' y' + todos.substring(lastComma + 1);
+        var todoscast = todos.substring(0, lastComma) + ' y' + todos.substring(lastComma + 1);
+        var todoseusk = todos.substring(0, lastComma) + ' eta' + todos.substring(lastComma + 1);
         
-        saludo.innerHTML += "nuestra asistencia a la boda, en total seremos " + total + " (" + todos + ").";
+        saludo.getElementsByClassName("cast")[0].innerHTML += "nuestra asistencia a la boda, en total seremos " + total + " (" + todoscast + ").";
+        saludo.getElementsByClassName("eusk")[0].innerHTML += "ezkontzara joango garela baieztatzeko, guztira " + total + " izango gara (" + todoseusk + ").";
 
         if (infantiles != '') {
-            if (cuantos == 1) { menus.innerHTML += infantiles + ' tendrá menú infantil'; }
-            else { menus.innerHTML += infantiles + ' tendrán menú infantil'; }
-            menus.innerHTML += ', el resto menú de adultos.'
+            if (cuantos == 1) { 
+                menus.getElementsByClassName("cast").innerHTML += infantiles + ' tendrá menú infantil'; 
+                menus.getElementsByClassName("eusk").innerHTML += infantiles + '(a)k haurrentzako menua hartuko du'; 
+            }
+            else { 
+                menus.getElementsByClassName("cast").innerHTML += infantiles + ' tendrá menú infantil'; 
+                menus.getElementsByClassName("eusk").innerHTML += infantiles + '(a)k haurrentzako menua hartuko dute'; 
+            }
+            menus.getElementsByClassName("cast").innerHTML += ', el resto menú de adultos.'
+            menus.getElementsByClassName("eusk").innerHTML += ', besteak helduentzako menua.'
         }
     }
 
@@ -332,14 +398,20 @@ function crearMensaje() {
     
     for (let i = 0; i < intos.length; i++) {
         if (intos[i].value.trim().length > 0) {
-            var texto = document.createElement("p");
+            var textocast = document.createElement("p");
+            textocast.setAttribute("class", "cast");
+            var textoeusk = document.createElement("p");
+            textoeusk.setAttribute("class", "eusk cerrado");
             if (total == 1) {
-                texto.innerHTML = "Mis intolerancias o alergias: " + intos[i].value;
+                textocast.innerHTML = "Mis intolerancias o alergias: " + intos[i].value;
+                textoeusk.innerHTML = "Nire intolerantziak edo alergiak: " + intos[i].value;
             }
             else {
-                texto.innerHTML = "Intolerancias o alergias de " + intos[i].id.slice(3) + ": " + intos[i].value;
+                textocast.innerHTML = "Intolerancias o alergias de " + intos[i].id.slice(3) + ": " + intos[i].value;
+                textoeusk.innerHTML = intos[i].id.slice(3) + "(r)en intolerantziak edo alergiak: " + intos[i].value;
             }
-            ints.appendChild(texto);
+            ints.appendChild(textocast);
+            ints.appendChild(textoeusk);
         }
     }
 
@@ -370,7 +442,6 @@ const copyTxt = mensaje => {
 
 
 function mostrarpregunta() {
-    console.log(this.parentElement.parentElement.getElementsByClassName("respuesta")[0]);
     this.classList.add("cerrado");
     this.parentElement.getElementsByClassName("menospregunta")[0].classList.remove("cerrado");
     this.parentElement.parentElement.getElementsByClassName("respuesta")[0].classList.remove("cerrado");
@@ -379,7 +450,6 @@ function mostrarpregunta() {
 
 
 function ocultarpregunta() {
-    console.log(this.parentElement.parentElement.getElementsByClassName("respuesta")[0]);
     this.classList.add("cerrado");
     this.parentElement.getElementsByClassName("maspregunta")[0].classList.remove("cerrado");
     this.parentElement.parentElement.getElementsByClassName("respuesta")[0].classList.add("cerrado");
@@ -418,6 +488,43 @@ function crearCuentaAtras() {
             document.getElementById("cuentaatras").classList.add("cerrado");
             document.getElementById("gracias").classList.remove("cerrado");
             document.getElementById("gracias").innerHTML = "¡Gracias por haber estado con nosotros!";
+            document.getElementById("gracias2").innerHTML = "Milesker gurekin egon zareten guztioi!";
         }
     }, 1000);
+}
+
+function cambioacast(){
+    if (!cast) {
+        var lcast = document.getElementsByClassName("cast");
+        for (let i = 0; i < lcast.length; i++) {
+            lcast[i].classList.remove("cerrado");
+        }
+        var leusk = document.getElementsByClassName("eusk");
+        for (let i = 0; i < leusk.length; i++) {
+            leusk[i].classList.add("cerrado");
+        }
+        document.getElementById("langcast").classList.add("lact");
+        document.getElementById("langeusk").classList.remove("lact");
+
+        cast = true;
+        eusk = false;
+    }
+}
+
+function cambioaeusk(){
+    if (!eusk) {
+        var leusk = document.getElementsByClassName("eusk");
+        for (let i = 0; i < leusk.length; i++) {
+            leusk[i].classList.remove("cerrado");
+        }
+        var lcast = document.getElementsByClassName("cast");
+        for (let i = 0; i < lcast.length; i++) {
+            lcast[i].classList.add("cerrado");
+        }
+        document.getElementById("langeusk").classList.add("lact");
+        document.getElementById("langcast").classList.remove("lact");
+
+        eusk = true;
+        cast = false;
+    }
 }

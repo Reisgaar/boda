@@ -10,6 +10,31 @@ body {
 
 .cerrado {display: none !important;}
 
+.langs {
+    cursor: default;
+    position: fixed;
+    background-color: black;
+    color: white;
+    bottom: 0;
+    right: 0;
+    z-index: 8;
+    padding: 10px;
+    border-radius: 15px 15px 0 0;
+}
+
+.lang {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.lsep {
+    cursor: default;
+}
+
+.lact {
+    color: #aa6ce4;
+}
+
 .header {
     background-image: url(../images/portada.jpg);
     background-size: cover;
@@ -105,12 +130,11 @@ body {
     width: 80%;
     font-size: 2em;
     line-height: 1;
-    margin: 10px auto 30px;
+    margin: 10px auto -20px;
 }
 
 .nosotros {
     display: flex;
-    margin: auto;
     font-family: 'Fuggles', cursive;
 }
 
@@ -130,12 +154,16 @@ body {
     border-color: whitesmoke;
     position: relative;
     z-index: -1;
-    margin-top: -46px;
     -webkit-box-shadow: 10px 10px 15px 5px rgba(0,0,0,0.5); 
     box-shadow: 10px 10px 15px 5px rgba(0,0,0,0.5);
 }
 
+.polaroid.maria:hover img {border-color: #d081d0;}
+.polaroid.asier:hover img {border-color: #6d6fd3;}
+
 .asierymaria h2{
+    position: relative;
+    top: 46px;
     font-size: 5em;
     display: inline;
 }
@@ -145,6 +173,8 @@ body {
 }
 
 .iconrss {
+    position: relative;
+    top: 46px;
     text-decoration: none;
     margin: 0px 30px;
     display: inline;
@@ -605,6 +635,7 @@ body {
     border-radius: 10px;
     padding: 10px;
     box-shadow: 2px 2px 2px darkgrey;
+    background-color: #ece4f7;
 }
 
 .enunciado {
@@ -1001,5 +1032,25 @@ body {
 
     .itemMenu {
         display: block;
+    }
+
+    .polaroid {
+        position: relative;
+        margin-bottom: 80px;
+    }
+
+    .iconrss {
+        position: absolute;
+        top: 100%;
+        margin: 20px -20px 0px;
+    }
+
+    .iconrss img {
+        width: 45px;
+    }
+
+    .iconrss img:hover {
+        width: 50px;
+        margin: 0px -3px 0px;
     }
 }
