@@ -158,8 +158,10 @@ body {
     box-shadow: 10px 10px 15px 5px rgba(0,0,0,0.5);
 }
 
-.polaroid.maria:hover img {border-color: #d081d0;}
-.polaroid.asier:hover img {border-color: #6d6fd3;}
+.polaroid.maria:hover img {border-color: #a22ea2;}
+.polaroid.asier:hover img {border-color: #4143c7;}
+.polaroid.maria:hover h2 {color: white;}
+.polaroid.asier:hover h2 {color: white;}
 
 .asierymaria h2{
     position: relative;
@@ -996,7 +998,7 @@ body {
     }
 
     .circulo {
-        border: 1vw solid #c47ee6;
+        border: 0.34vw solid #c47ee6;
         width: 20vw;
         height: 20vw;
     }
@@ -1052,5 +1054,15 @@ body {
     .iconrss img:hover {
         width: 50px;
         margin: 0px -3px 0px;
+    }
+}
+
+@media (max-width: 320px) {
+    .textoHeader h1 {
+        font-size: 38px;
+    }
+
+    .textoHeader p {
+        font-size: 23px;
     }
 }

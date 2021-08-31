@@ -320,8 +320,10 @@ function pretarjeta() {
         document.getElementById("paso" + prev).classList.remove("cerrado");
     }
     else if (num == 4){
-        document.getElementById('saludo').innerHTML = 'Hola, os escribo para confirmaros ';
-        document.getElementById('menus').innerHTML = '';
+        document.getElementById('saludo').getElementsByClassName("cast")[0].innerHTML = 'Hola, os escribo para confirmaros ';
+        document.getElementById('saludo').getElementsByClassName("eusk")[0].innerHTML = 'Aupa! idazten dizuet ';
+        document.getElementById('menus').getElementsByClassName("cast")[0].innerHTML = '';
+        document.getElementById('menus').getElementsByClassName("eusk")[0].innerHTML = '';
         document.getElementById('ints').innerHTML = '';
 
         document.getElementById("paso" + num).classList.add("cerrado");
@@ -362,12 +364,12 @@ function crearMensaje() {
         saludo.getElementsByClassName("cast")[0].innerHTML += "mi asistencia a la boda.";
         saludo.getElementsByClassName("eusk")[0].innerHTML += "ezkontzara joango naizela baieztatzeko.";
         if (infantiles == ''){
-            menus.getElementsByClassName("cast").innerHTML += "Mi menú será de adultos.";
-            menus.getElementsByClassName("eusk").innerHTML += "Helduentzako menua hartuko dut.";
+            menus.getElementsByClassName("cast")[0].innerHTML += "Mi menú será de adultos.";
+            menus.getElementsByClassName("eusk")[0].innerHTML += "Helduentzako menua hartuko dut.";
         }
         else {
-            menus.getElementsByClassName("cast").innerHTML += "Mi menú será infantil.";
-            menus.getElementsByClassName("eusk").innerHTML += "Haurrentzako menua hartuko dut.";
+            menus.getElementsByClassName("cast")[0].innerHTML += "Mi menú será infantil.";
+            menus.getElementsByClassName("eusk")[0].innerHTML += "Haurrentzako menua hartuko dut.";
         }
         
     }
@@ -382,15 +384,15 @@ function crearMensaje() {
 
         if (infantiles != '') {
             if (cuantos == 1) { 
-                menus.getElementsByClassName("cast").innerHTML += infantiles + ' tendrá menú infantil'; 
-                menus.getElementsByClassName("eusk").innerHTML += infantiles + '(a)k haurrentzako menua hartuko du'; 
+                menus.getElementsByClassName("cast")[0].innerHTML += infantiles + ' tendrá menú infantil'; 
+                menus.getElementsByClassName("eusk")[0].innerHTML += infantiles + '(a)k haurrentzako menua hartuko du'; 
             }
             else { 
-                menus.getElementsByClassName("cast").innerHTML += infantiles + ' tendrá menú infantil'; 
-                menus.getElementsByClassName("eusk").innerHTML += infantiles + '(a)k haurrentzako menua hartuko dute'; 
+                menus.getElementsByClassName("cast")[0].innerHTML += infantiles + ' tendrá menú infantil'; 
+                menus.getElementsByClassName("eusk")[0].innerHTML += infantiles + '(a)k haurrentzako menua hartuko dute'; 
             }
-            menus.getElementsByClassName("cast").innerHTML += ', el resto menú de adultos.'
-            menus.getElementsByClassName("eusk").innerHTML += ', besteak helduentzako menua.'
+            menus.getElementsByClassName("cast")[0].innerHTML += ', el resto menú de adultos.'
+            menus.getElementsByClassName("eusk")[0].innerHTML += ', besteak helduentzako menua.'
         }
     }
 
@@ -421,16 +423,32 @@ function crearMensaje() {
 const copyTxt = mensaje => {
     var mensaje = '';
 
-    mensaje += document.getElementById("saludo").innerHTML;
-    mensaje += "\n\n" + document.getElementById("menus").innerHTML;
+    if (cast) {
+        mensaje += document.getElementById("saludo").getElementsByClassName("cast")[0].innerHTML;
+        mensaje += "\n\n" + document.getElementById("menus").getElementsByClassName("cast")[0].innerHTML;
 
-    var intsL = document.getElementById("ints").getElementsByTagName('p');
-    for (let i = 0; i < intsL.length; i++) {
-        mensaje += "\n\n" + intsL[i].innerHTML;
+        var intsL = document.getElementById("ints").getElementsByTagName('p');
+        for (let i = 0; i < intsL.length; i++) {
+            if (intsL[i].classList.contains("cast")) {
+                mensaje += "\n\n" + intsL[i].innerHTML;
+            }
+        }
+
+        mensaje += "\n\n" + document.getElementById("adios").getElementsByClassName("cast")[0].innerHTML;
     }
+    else {
+        mensaje += document.getElementById("saludo").getElementsByClassName("eusk")[0].innerHTML;
+        mensaje += "\n\n" + document.getElementById("menus").getElementsByClassName("eusk")[0].innerHTML;
 
-    mensaje += "\n\n" + document.getElementById("adios").innerHTML;
+        var intsL = document.getElementById("ints").getElementsByTagName('p');
+        for (let i = 0; i < intsL.length; i++) {
+            if (intsL[i].classList.contains("eusk")) {
+                mensaje += "\n\n" + intsL[i].innerHTML;
+            }
+        }
 
+        mensaje += "\n\n" + document.getElementById("adios").getElementsByClassName("eusk")[0].innerHTML;
+    }
 
     const el = document.createElement('textarea');
     el.value = mensaje;
