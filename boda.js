@@ -389,7 +389,7 @@ function crearMensaje() {
             }
             else { 
                 menus.getElementsByClassName("cast")[0].innerHTML += infantiles + ' tendrá menú infantil'; 
-                menus.getElementsByClassName("eusk")[0].innerHTML += infantiles + '(a)k haurrentzako menua hartuko dute'; 
+                menus.getElementsByClassName("eusk")[0].innerHTML += console.log(infantiles.replace(' y ', ' eta ')); + '(a)k haurrentzako menua hartuko dute'; 
             }
             menus.getElementsByClassName("cast")[0].innerHTML += ', el resto menú de adultos.'
             menus.getElementsByClassName("eusk")[0].innerHTML += ', besteak helduentzako menua.'
